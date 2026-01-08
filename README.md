@@ -8,7 +8,7 @@ We add support for additional models under:
 opencompass/configs/models/a_test_models_instruct/
 ```
 
-and custom datasets under:
+and custom datasets settings under:
 
 ```
 opencompass/configs/datasets/
@@ -19,6 +19,8 @@ opencompass/configs/datasets/
 ## 🛠️ Installation
 
 Please follow the official [OpenCompass installation guide](https://doc.opencompass.org.cn/get_started/installation.html) to set up the environment.
+
+The vllm we used is `vllm==0.6.1.post1`, it maybe different from the latest opencompass version.
 
 > You may also refer to the customized version of the original README provided here as `README-opencompass.md`.
 
@@ -66,7 +68,7 @@ models = [
 You may run evaluations using the same commands provided in the official documentation. Additionally, this repo includes **custom evaluation scripts** in:
 
 ```
-opencompass/eval_scripts/
+opencompass/eval_scripts/run_large_4gpus.sh
 ```
 
 Feel free to explore and adapt them for your experiments.
@@ -81,7 +83,7 @@ Feel free to explore and adapt them for your experiments.
   - `a_gsm8k/` for GSM8K
   - `a_math/` for MATH
 
-  These configuration files are intended for flexible experimentation and may serve as practical references when creating your own dataset settings.
+    These configuration files correspond to the prompting setups used in our paper and are differentiated by their filenames. To run a specific setup, please update the dataset configuration filenames accordingly in your script.
 
 - `gsm8k_postprocess_fixed()` is a customized post-processing function for GSM8K implemented in `opencompass/opencompass/datasets/gsm8k.py`. It is introduced to mitigate evaluation bias present in the original post-processing logic.
 
